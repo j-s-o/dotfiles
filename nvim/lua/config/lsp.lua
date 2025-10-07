@@ -17,7 +17,7 @@ local function on_attach(args)
     end
 
     local map = vim.keymap.set
-    local fzf = require("fzf-lua")
+    local telescope = require("telescope.builtin")
 
     --- Toggle Virtual lines
 
@@ -31,11 +31,11 @@ local function on_attach(args)
     end
 
     if client:supports_method "textDocument/documentSymbol" then
-        map("n", "gO", fzf.lsp_workspace_symbols, opt("List document symbols"))
+        map("n", "gO", telescope.lsp_document_symbols, opt("List document symbols"))
     end
 
     if client:supports_method "workspace/workspaceSymbols" then
-        map("n", "grO", fzf.lsp_document_symbols, opt("List document symbols"))
+        map("n", "grO", telescope.lsp_workspace_symbols, opt("List workspace symbols"))
     end
 
     if client:supports_method "textDocument/inlayHint" then
@@ -43,6 +43,10 @@ local function on_attach(args)
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end, opt("Toggle inlay hints"))
     end
+
+	if client:supports_method "textDocument/definition" then
+		map("n", "gd", telescope.lsp_definitions, opt("List definitions"))
+	end
 end
 
 local function init()
