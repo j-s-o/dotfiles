@@ -9,6 +9,7 @@ lspconfig["docker_compose_language_service"].setup({})
 lspconfig["dockerls"].setup({})
 lspconfig["lemminx"].setup({})
 lspconfig["marksman"].setup({})
+lspconfig["eslint"].setup({})
 lspconfig["pyright"].setup({})
 lspconfig["solargraph"].setup({})
 lspconfig["yamlls"].setup({})
@@ -34,6 +35,7 @@ lspconfig["sqlls"].setup({
 })
 
 lspconfig["rust_analyzer"].setup({
+  capabilities = cmp_nvim_lsp.default_capabilities(),
   settings = {
     ["rust-analyzer"] = {
       diagnostics = {

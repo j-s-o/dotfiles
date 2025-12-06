@@ -58,11 +58,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     end,
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(_)
-    info_log("LSP client successfully attached.")
-  end,
-})
+--vim.api.nvim_create_autocmd("LspAttach", {
+  --callback = function(_)
+    --info_log("LSP client successfully attached.")
+  --end,
+--})
 
 
 vim.api.nvim_create_autocmd("RecordingEnter", {

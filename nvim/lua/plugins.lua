@@ -105,7 +105,9 @@ local plugins = {
 
   -- Colorscheme and Lualine
   {
-    "miikanissi/modus-themes.nvim",
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
     dependencies = {
       "nvim-lualine/lualine.nvim",
     },
@@ -161,18 +163,25 @@ local plugins = {
     config = get_setup("lint"),
   },
 
-  -- tailwind
+  -- Vim terminal friendly interface
   {
-    "luckasRanarison/tailwind-tools.nvim",
-    name = "tailwind-tools",
-    build = ":UpdateRemotePlugins",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    config = get_setup("tailwind_tools"),
+    "akinsho/toggleterm.nvim",
+    config = get_setup("toggleterm"),
   },
+
+
+  -- tailwind
+  --{
+    --"luckasRanarison/tailwind-tools.nvim",
+    --name = "tailwind-tools",
+    --build = ":UpdateRemotePlugins",
+    --dependencies = {
+      --"nvim-treesitter/nvim-treesitter",
+      --"nvim-telescope/telescope.nvim",
+      --"neovim/nvim-lspconfig",
+    --},
+    --config = get_setup("tailwind_tools"),
+  --},
 
   -- code block lines
   --{

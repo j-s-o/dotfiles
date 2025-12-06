@@ -29,6 +29,8 @@ cmp.setup({
   },
 
   mapping = {
+    ['<C-Space>'] = cmp.mapping.complete(),
+    
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
